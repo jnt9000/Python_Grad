@@ -38,10 +38,10 @@ def get_wager(bank : int) -> int:
     wager_amount = int(input("How many chips do you want to wager? ==> "))
     if wager_amount <= 0:
         print("The wager amount must be greater than 0. Please enter again. ")
-        get_wager()
+        return get_wager(bank)
     elif wager_amount > bank:
         print("The wager amount cannot be greater than how much you have. ")
-        get_wager()
+        return get_wager(bank)
     else:    
         return wager_amount            
 
@@ -66,12 +66,12 @@ def get_bank() -> int:
     ''' Returns how many chips the user wants to play with.  Loops until a value greater than 0 and less than 101 '''
     chips = int(input("How many chips do you want to start with? ==> "))
     if chips < 0:
-        print("Too low a value, you can only choose 1 -100 chips")
-        chips()
+        print("Too low a value, you can only choose 1 - 100 chips")
+        return get_bank()
     elif chips > 101:
-        print("Too high a value, you can only choose 1 -100 chips")
-        chips()
-    else:
+        print("Too high a value, you can only choose 1 - 100 chips")
+        return get_bank()
+    elif chips in range(1,101):
         return chips
 
 def get_payout(wager, matches):
