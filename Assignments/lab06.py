@@ -97,12 +97,14 @@ def verify_check_digit(card):
     else:
         return True, ""
         
-def library_card_check():
-    card = input("Enter Library Card. Hit Enter To Exit ==> ")
-    if verify_check_digit(card)[0] == False:
-        print("Library card is invalid.")
-        print(verify_check_digit(card)[1])
-    else:
-        print("Library card is valid.")
-        print("The card belongs to a student in",get_school(int(card[5])))
-        print("The card belongs to a",get_grade(int(card[6])))
+if __name__ == "__main__":
+    playing = True
+    while playing:
+        card = input("Enter Library Card. Hit Enter To Exit ==> ")
+        if verify_check_digit(card)[0] == False:
+            print("Library card is invalid.")
+            print(verify_check_digit(card)[1])
+        else:
+            print("Library card is valid.")
+            print("The card belongs to a student in",get_school(int(card[5])))
+            print("The card belongs to a",get_grade(int(card[6])))
