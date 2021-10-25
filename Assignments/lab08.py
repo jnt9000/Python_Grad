@@ -29,7 +29,7 @@ def output(input1,input2,input3):
             if int(file3[7]) > input1:
                 file4.write("{} {}              {}                            {:.3f}\n".format(file3[0],file3[1],file3[2],int(file3[7])))
         except ValueError:
-            print("Could not convert value {} for vehicle {} {} {}".format(file3[7],file3[0],file3[1],file3[2]))
+            print("\nCould not convert value {} for vehicle {} {} {}".format(file3[7],file3[0],file3[1],file3[2]))
             continue
         except IndexError:
             continue
@@ -62,11 +62,11 @@ def mpg():
             elif input1 > 100:
                 print("Fuel economy must be less than 100")
                 input1 = float(input("Enter the minimum mpg ==> "))
-        input2 = input("Enter the name of the input vehicle file ==> ")
+        input2 = input("\nEnter the name of the input vehicle file ==> ")
         while input_check(input2) == False:
             print("Could not open file {}".format(input2))
             input2 = input("Enter the name of the input vehicle file ==> ")
-        input3 = input("Enter the name of the file to output to ==> ")
+        input3 = input("\nEnter the name of the file to output to ==> ")
         while output_check(input3) == False:
             print("There is an IO Error {}".format(input3))
             input3 = input("Enter the name of the file to output to ==> ")
