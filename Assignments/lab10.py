@@ -135,5 +135,7 @@ def crimedata():
     for key in create_offense_dict(read_in_file(input1)):
         if create_offense_dict(read_in_file(input1)).get(key) == maxoffense:
             pos2 = key    
-    print("The offense with the highest # of crimes is {} with {} offenses".format(maxoffense,pos2))
-    input2 = input("Enter an offense ")
+    print("The offense with the highest # of crimes is {} with {} offenses".format(pos2,maxoffense))
+    
+
+    
