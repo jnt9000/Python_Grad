@@ -99,13 +99,24 @@ def create_offense_by_zip(listname):
     key_count = {}
     key_count2 = {}
     for lists in listname[1:]:
-        key_count.update({lists[7]:lists[13]})
+        if lists[7] not in key_count:
+            key_count.update({lists[7]:[lists[13]]})
+        else:
+            key_count[lists[7]].append(lists[13])
     for key in key_count:
-        key_count2[key] = {key_count[key]:0}
-        try:
-            key_count2[key][key_count[key]] += 1
-        except KeyError:
-            key_count2[key][key_count[key]] = 1
+        key_count2.update({key:[]})
+        for key1 in key_count.get(key):
+            try:
+                #dennis["deek"][0]['i']
+                key_count2[key][int(key_count.get(key).index(key1))][key1] += 1
+            except:
+                key_count2[key].append({key1:1})
+            #if key not in key_count2[key]:
+                #key_count2[key].append({key1:1})
+            #else:
+                #for zipcode in key_count2[key]:
+                    #zipcode += 1
+                #print(zipcode)
     return key_count2
     
     
@@ -135,7 +146,15 @@ def crimedata():
     for key in create_offense_dict(read_in_file(input1)):
         if create_offense_dict(read_in_file(input1)).get(key) == maxoffense:
             pos2 = key    
-    print("The offense with the highest # of crimes is {} with {} offenses".format(pos2,maxoffense))
-    
+    print("The offense with the highest # of crimes is {} with {} offenses\n".format(pos2,maxoffense))
+    input2 = input("Enter an offense ")
+    print("\n",input2,"offenses by Zip Code")
+    print("Zip Code # Offenses")
+    print("===================")
+    for crime in create_offense_by_zip(read_in_file(input1)):
+        if crime == input2:
+            for thing in create_offense_by_zip(read_in_file(input1)).get(crime):
+                for zipcode in create_offense_by_zip(read_in_file(input1)).get(crime)[create_offense_by_zip(read_in_file(input1)).get(crime).index(thing)]:
+                    print(zipcode,"           ", create_offense_by_zip(read_in_file(input1)).get(crime)[create_offense_by_zip(read_in_file(input1)).get(crime).index(thing)].get(zipcode))
 
-    
+crimedata()
