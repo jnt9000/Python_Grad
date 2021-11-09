@@ -107,16 +107,9 @@ def create_offense_by_zip(listname):
         key_count2.update({key:[]})
         for key1 in key_count.get(key):
             try:
-                #dennis["deek"][0]['i']
                 key_count2[key][int(key_count.get(key).index(key1))][key1] += 1
             except:
                 key_count2[key].append({key1:1})
-            #if key not in key_count2[key]:
-                #key_count2[key].append({key1:1})
-            #else:
-                #for zipcode in key_count2[key]:
-                    #zipcode += 1
-                #print(zipcode)
     return key_count2
     
     
