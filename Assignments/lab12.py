@@ -5,7 +5,7 @@
 ## Name Jack Turner
 ## Email jnt4vp@umsystem.edu
 ##
-## PROBLEM : Create a program to print the time
+## PROBLEM : Create a program with a clock class to print the time
 ##
 ## ALGORITHM : 
 ##      1. Write out the algorithm
