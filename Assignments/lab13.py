@@ -78,3 +78,5 @@ class CircleFilled(Circle):
         Circle.draw_action(self)
         turtle.end_fill()
         
+b = CircleFilled(100,100,50,"blue","red")   
+b.draw()     
